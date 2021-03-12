@@ -71,7 +71,7 @@ public extension Environment {
     private static func getAbsolutePath(for filename: String) -> String? {
         let fileManager = FileManager.default
         let currentPath = fileManager.currentDirectoryPath
-        let filePath = currentPath + relativePath
+        let filePath = currentPath + "/\(filename)"
         if fileManager.fileExists(atPath: filePath) {
             return filePath
         } else {
