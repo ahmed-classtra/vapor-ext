@@ -70,8 +70,8 @@ public extension Environment {
     /// - Returns: the absolute path if exists.
     private static func getAbsolutePath(for filename: String) -> String? {
         let fileManager = FileManager.default
-        let currentPath = DirectoryConfig.detect().workDir.finished(with: "/")
-        let filePath = currentPath + filename
+        let currentPath = fileManager.currentDirectoryPath
+        let filePath = currentPath + relativePath
         if fileManager.fileExists(atPath: filePath) {
             return filePath
         } else {
